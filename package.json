@@ -1,0 +1,24 @@
+{
+  "name": "redux-slicer",
+  "version": "0.0.1",
+  "description": "Library for handling redux actions easily",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "redux",
+    "react",
+    "redux-slicer"
+  ],
+  "author": "Evgeniy Fetisov",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.137",
+    "lodash": "^4.17.15",
+    "redux": "^4.0.4"
+  }
+}
