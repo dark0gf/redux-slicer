@@ -1,29 +1,10 @@
-import { get, set } from 'lodash';
+import { get, set } from "lodash";
 import { Store } from 'redux';
 
 const GENERIC_ACTION_PREFIX = 'GENERIC';
 
 let store: Store;
 const dispatchQ: any[] = [];
-
-// const genericDispatch = (selector: string, func: Function) => {
-//   if (store) {
-//     store.dispatch({
-//       type: GENERIC_ACTION_PREFIX,
-//       selector,
-//       func,
-//     });
-//   } else {
-//     dispatchQ.push({type: GENERIC_ACTION_PREFIX, selector, func});
-//   }
-// };
-
-
-// const genericDispatchFactory = (selector: string) => {
-//   return (func: Function) => {
-//     return () => genericDispatch(selector, func);
-//   };
-// };
 
 const crateValidTypeName = (str: string) => {
   return str.replace(/[^\w!?]/g, '_').toUpperCase();
@@ -45,9 +26,11 @@ const genericNamedDispatch = <StateType>(typeName: string, selector: string, fun
 class StoreSlicer<StateType> {
   selector: string;
   actionTypeNamePrefix: string;
+  initialState: StateType;
 
-  constructor(selector: string, typeName?: string) {
+  constructor(selector: string, initialState: StateType, typeName?: string) {
     this.selector = selector;
+    this.initialState = initialState;
     if (typeName) {
       this.actionTypeNamePrefix = typeName;
     } else {
@@ -55,7 +38,7 @@ class StoreSlicer<StateType> {
     }
   }
 
-  dispatch(func: (state: StateType) => StateType, typeName?: string) {
+  dispatch = (func: (state: StateType) => StateType, typeName?: string) => {
     let actionName;
     if (typeName) {
       actionName = `${this.actionTypeNamePrefix}_${typeName}`;
@@ -63,19 +46,16 @@ class StoreSlicer<StateType> {
       actionName = this.actionTypeNamePrefix;
     }
     return genericNamedDispatch(actionName, this.selector, func);
-  }
+  };
 
-  // getState(): StateType  {
-  //   return store.getState();
-  // }
-  //
-  // selectFromStore<T>(s: string): T {
-  //   const state = get(store.getState(), this.selector);
-  //   if (s) {
-  //     return get(state, s);
-  //   }
-  //   return state;
-  // }
+  getState = (state: any): StateType => {
+    return get(state, this.selector);
+  };
+
+  resetState = () => {
+    this.dispatch(() => this.initialState);
+  };
+
 }
 
 const connectStore = (s: Store) => {
