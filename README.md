@@ -1,5 +1,5 @@
 # redux-slicer
-Tiny and simple library to control redux state without constants, action, action creators, switch statements, weird selectors. Strongly typed: inside reducer function you will get exact type for your part state. Can be used with other actions.
+Tiny and simple library to control redux state without constants, action, action creators, switch statements, weird selectors. Strongly typed: inside reducer function you will get exact type for your part state. Can be used with existing application with other actions.
 
 ###  Connect to redux
 1. Install  library to you project.
@@ -78,3 +78,7 @@ Action type name will be such: `GENERIC_FOO_BAR_ADD_VALUE`
 
 
 
+### Some notes:
+1. All action from redux-slicer will have `GENERIC` prefix (it's needed to separate slicer actions from other actions)
+2. You can use redux-slicer with functional or class components.
+3. You can use it with react hooks.
