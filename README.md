@@ -87,9 +87,9 @@ dispatch - change part state
 2. You can use redux-slicer with functional or class components.
 3. You can use it with react hooks.
 
-### Alternative libraries that uses same some kind idea:
+### Alternative libraries that uses same idea:
 https://github.com/rematch/rematch
-
+https://github.com/johnpapa/angular-ngrx-data
 
 
 ### TODO:
