@@ -76,12 +76,21 @@ NOTE: `props.someData` or `props.data.someData`  will have type `ISlicerData`
 ```
 Action type name will be such: `GENERIC_FOO_BAR_ADD_VALUE`
 
+##### So basically you only need 2 methods to contol your state:
 
+getState - to get sliced state from global state
+
+dispatch - change part state
 
 ### Some notes:
 1. All action from redux-slicer will have `GENERIC` prefix (it's needed to separate slicer actions from other actions)
 2. You can use redux-slicer with functional or class components.
 3. You can use it with react hooks.
+
+### Alternative libraries that uses same some kind idea:
+https://github.com/rematch/rematch
+
+
 
 ### TODO:
 Write tests.
