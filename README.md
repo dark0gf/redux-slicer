@@ -70,11 +70,27 @@ NOTE: `props.someData` or `props.data.someData`  will have type `ISlicerData`
       // to return ISlicerData, so it will be hard to mess with data inside store
       return {
         ...state,
-        {someData: [...state.someData, 'value 4']}
+        {someData: [...state.someData, 'value 4']} // don't forget to NOT mutate store data 
       };
     }, 'ADD_VALUE');
 ```
-Action type name will be such: `GENERIC_FOO_BAR_ADD_VALUE`
+Action type name will be such: `GENERIC_FOO_BAR_ADD_VALUE`.
+
+After that action state will be such:
+```javascript
+  {
+    foo: {
+     bar: {
+       someData: [
+         'value 1',
+         'value 2',
+         'value 3',
+         'value 4'
+       ]
+     }
+    }
+  }
+```
 
 ##### So basically you only need 2 methods to control your state:
 
