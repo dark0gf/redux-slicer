@@ -37,7 +37,7 @@ Asume that you have such state:
 }
 ```
 
-###### First create slicer:
+##### First create slicer:
 ```javascript
   interface ISlicerData {
     someData: Array
@@ -45,7 +45,7 @@ Asume that you have such state:
   const slicer = new StoreSlicer<ISlicerData>('foo.bar');
 ```
 
-###### Then connect slicer state to some component:
+##### Then connect slicer state to some component:
 ```javascript
   connect(slicer.getState)(SomeComponent);
 ``` 
@@ -63,7 +63,7 @@ or
 
 NOTE: `props.someData` or `props.data.someData`  will have type `ISlicerData`
 
-###### Dispatch action to change state:
+##### Dispatch action to change state:
 ```javascript
     slicer.dispatch((state) => {
       //NOTE: state will have type ISlicerData and function have strong type 
@@ -82,3 +82,10 @@ Action type name will be such: `GENERIC_FOO_BAR_ADD_VALUE`
 1. All action from redux-slicer will have `GENERIC` prefix (it's needed to separate slicer actions from other actions)
 2. You can use redux-slicer with functional or class components.
 3. You can use it with react hooks.
+
+### TODO:
+Write tests.
+
+Add to npm.
+
+Configure CI for version control and npm publish. 
