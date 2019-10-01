@@ -76,7 +76,7 @@ NOTE: `props.someData` or `props.data.someData`  will have type `ISlicerData`
 ```
 Action type name will be such: `GENERIC_FOO_BAR_ADD_VALUE`
 
-##### So basically you only need 2 methods to contol your state:
+##### So basically you only need 2 methods to control your state:
 
 getState - to get sliced state from global state
 
