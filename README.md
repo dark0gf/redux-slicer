@@ -89,6 +89,7 @@ dispatch - change part state
 
 ### Alternative libraries that uses same idea:
 https://github.com/rematch/rematch
+
 https://github.com/johnpapa/angular-ngrx-data
 
 
