@@ -78,10 +78,10 @@ class StoreSlicer<StateType> {
    * Dispatch action function with initial state (if initial state is defined)
    */
   resetState = () => {
-    if (this.initialState == undefined) {
+    if (this.initialState == null) {
       return;
     }
-    this.dispatch(() => this.initialState);
+    this.dispatch(() => this.initialState!);
   };
 
 }
